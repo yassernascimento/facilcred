@@ -1,5 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 
 export default function Home() {
-  return <div>Hello world!</div>
+  const Hello = styled.p`
+    font-weight: bold;
+    color: blue;
+  `
+  return <Hello>Hello world!</Hello>
 }
