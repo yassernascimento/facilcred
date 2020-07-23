@@ -1,6 +1,10 @@
 import React from 'react'
-import { Button } from '../components'
+import { Differential } from '../components'
 
 export default function Home() {
-  return <Button text="faça sua simulação" />
+  return (
+    <div>
+      <Differential />
+    </div>
+  )
 }
