@@ -3,7 +3,7 @@ import { Differential } from '../components'
 
 export default function Home() {
   return (
-    <div>
+    <div class="home">
       <Differential />
     </div>
   )
