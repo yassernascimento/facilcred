@@ -1,10 +1,10 @@
 import React from 'react'
-import { Differential } from '../components'
+import { Differential, Table } from '../components'
 
 export default function Home() {
   return (
     <div>
-      <Differential />
+      <Table />
     </div>
   )
 }
