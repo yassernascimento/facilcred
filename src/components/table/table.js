@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import NumberFormat from 'react-number-format'
 import { useCountUp } from 'react-countup'
+import { Subject } from 'rxjs'
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators'
 
 const defaultNumberFormatProps = {
   prefix: 'R$ ',
@@ -19,6 +21,8 @@ const splits = {
   '12': parseFloat('0.18'),
   '24': parseFloat('0.22'),
 }
+
+const input$ = new Subject()
 
 function useValue() {
   const { countUp, update } = useCountUp({
@@ -42,6 +46,12 @@ export function Table() {
   }
 
   useEffect(() => {
+    input$
+      .pipe(debounceTime(600), distinctUntilChanged())
+      .subscribe(newInput => setInput(newInput))
+  }, [])
+
+  useEffect(() => {
     const valuesUpdated = updateValues(input)
     Object.entries(valuesUpdated).map(([splitNumber, newValue]) =>
       values[splitNumber].updateValue(newValue)
@@ -50,18 +60,17 @@ export function Table() {
 
   function updateValues(base) {
     // react-number-format doesn't allow type number
-    const baseNumber = Number(base)
     return Object.entries(splits).reduce(
       (acc, [splitNumber, percentage]) => ({
         ...acc,
-        [splitNumber]: baseNumber * percentage + baseNumber,
+        [splitNumber]: base * percentage + base,
       }),
       {}
     )
   }
 
   function handleChange(event) {
-    setInput(event.value)
+    input$.next(event.floatValue)
   }
 
   return (
