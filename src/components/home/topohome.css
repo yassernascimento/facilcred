@@ -1,4 +1,29 @@
 .topo {
   background-color: green;
   height: 100vh;
+  background-image: url('/bgtopo.png');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center top;
+  background-size: 100%;
+}
+
+.pessoasTopo {
+  position: relative;
+  margin-top: -20px;
+  left: 30%;
+  top: -80px;
+  z-index: 1;
+}
+.carroTopo {
+  position: relative;
+  margin-top: 0px;
+  left: 20%;
+  top: 30px;
+  z-index: 0;
+}
+@media (min-width: 600px) {
+  .topo {
+    background-image: url('');
+  }
 }

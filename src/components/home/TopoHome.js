@@ -7,7 +7,12 @@ export function TopoHome(props) {
     <div>
       <div class="topo">
         <Menu />
-        <div></div>
+        <div class="carroTopo">
+          <img src="./topocarro.png"></img>
+        </div>
+        <div class="pessoasTopo">
+          <img src="./pessoastopo.png"></img>
+        </div>
       </div>
     </div>
   )
