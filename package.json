@@ -15,7 +15,10 @@
   "dependencies": {
     "gatsby": "^2.23.12",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.12.0",
+    "react-number-format": "^4.4.1",
+    "rxjs": "^6.6.2"
   },
   "devDependencies": {
     "prettier": "2.0.5"
