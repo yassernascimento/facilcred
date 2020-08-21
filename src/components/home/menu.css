@@ -14,7 +14,8 @@
 #btn_menu {
   padding: 20px;
 }
-
+.logo {
+}
 .menu_links > div {
   border-bottom: 2px solid;
   border-color: #ffe479;
